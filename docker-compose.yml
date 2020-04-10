@@ -8,3 +8,13 @@ services:
     tty: true
     volumes:
       - ./workspace:/root/workspace
+  app:
+    hostname: "APP!"
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./workspace/app:/root/workspace/app
+    ports:
+      - "8080:8080"
